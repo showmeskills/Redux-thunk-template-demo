@@ -1,39 +1,39 @@
-import {INCREMENT_ACTION,DECREMENT_ACTION} from '../../actions/CartList/actionType'
+import {INCREMENT,DECREMENT} from '../../actions/CartList/actionType'
 
 
 const initState = [
     {
-        id:1,
-        title:'apples',
+        id:0,
+        title:'apple',
         price:10,
-        amount:10
+        amount:0,
     },
     {
-        id:2,
-        title:'oranges',
+        id:1,
+        title:'orange',
         price:10,
-        amount:10
+        amount:0,
     }
 ]
 
-export const cart = (state=initState,action)=>{
+
+export const CartList = (state=initState,action)=>{
         switch(action.type){
-            case INCREMENT_ACTION:
+            case INCREMENT:
                 return state.map(item=>{
-                    if(item.id === action.data){
-                        item.amount+=1
+                    if(item.id === action.id){
+                        item.amount +=1
                     }
-                    return item;
+                    return item
                 })
-            case DECREMENT_ACTION:
+            case DECREMENT:
                 return state.map(item=>{
-                    if(item.id === action.data){
-                        item.amount-=1
+                    if(item.id === action.id){
+                        item.amount -=1
                     }
-                    return item;
+                    return item
                 })
             default:
-                return state
+                return state;
         }
-
 }

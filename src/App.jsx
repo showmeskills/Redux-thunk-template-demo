@@ -1,14 +1,22 @@
 import React,{Component} from 'react'
+ 
+import {CartList,BlogList} from './containers'
 
-import {CartList} from './components'
 
 export default class App extends Component{
+
     render() {
-    
         return(
             <>
-                <h1>this is redux demo</h1>
-                <CartList/>
+                <h1>Redux demo</h1>
+                <div>
+                    <h1>demo one - local request</h1>
+                    <CartList/>
+                </div>
+                <div>
+                    <h1>demo two - async redux request</h1>
+                    <BlogList/>
+                </div>
             </>
         )
     }
